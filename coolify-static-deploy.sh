@@ -41,8 +41,16 @@ cp target/release/teacher-registry public/
 cat > public/start.sh << 'EOF'
 #!/bin/bash
 export RUST_LOG=info
-cd /app/public
+
+# Print current directory and contents for debugging
+echo "Current directory: $(pwd)"
+echo "Directory contents:"
+ls -la
+
+# Make the binary executable
 chmod +x ./teacher-registry
+
+# Run the application
 ./teacher-registry
 EOF
 
